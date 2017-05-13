@@ -19,12 +19,9 @@ public class WordCounter {
         set = new HashMap<>();
         totalCount = 0;
         try {
-            for (String word : new String(Files.readAllBytes(Paths.get(path)), StandardCharsets.UTF_8).replaceAll("\n", "").toLowerCase().split("\\s")) {
-                word = word.trim();
-                if (!word.isEmpty()) {
-                    set.put(word, set.getOrDefault(word, 0) + 1);
-                    totalCount++;
-                }
+            for (String word : new String(Files.readAllBytes(Paths.get(path)), StandardCharsets.UTF_8).toLowerCase().split("\\W+")) {
+                set.put(word, set.getOrDefault(word, 0) + 1);
+                totalCount++;
             }
         } catch (IOException e) {
             e.printStackTrace();

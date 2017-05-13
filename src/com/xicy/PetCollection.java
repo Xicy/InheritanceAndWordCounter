@@ -1,7 +1,7 @@
 package com.xicy;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 /**
  * Created by Umut Akkaya on 6.05.2017.
@@ -10,7 +10,7 @@ public class PetCollection {
     Map<String, Pet> set;
 
     public PetCollection() {
-        set = new TreeMap<String, Pet>();
+        set = new HashMap<>();
     }
 
     public void add(Pet pet) {
@@ -26,7 +26,7 @@ public class PetCollection {
     }
 
     private Map<String, Pet> list(Class c) {
-        Map<String, Pet> ret = new TreeMap<>();
+        Map<String, Pet> ret = new HashMap<>();
         for (Map.Entry<String, Pet> entry : set.entrySet())
             if (entry.getValue().getClass() == c)
                 ret.put(entry.getKey(), entry.getValue());
