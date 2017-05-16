@@ -1,6 +1,5 @@
 package com.xicy;
 
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -23,7 +22,7 @@ public class WordCounter {
                 set.put(word, set.getOrDefault(word, 0) + 1);
                 totalCount++;
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -37,7 +36,6 @@ public class WordCounter {
     }
 
     public Map<String, Integer> getEntries() {
-        if (set.size() == 0) throw new ExceptionInInitializerError("use initialize method");
         return new TreeMap<String, Integer>(set);
     }
 }
